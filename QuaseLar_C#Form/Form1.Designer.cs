@@ -1,6 +1,6 @@
 ﻿namespace QuaseLar_C_Form
 {
-    partial class Form1
+    partial class formulario
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -29,52 +29,50 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formulario));
+            this.textBoxNome = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBoxSenha = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxConfirmeSenha = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBoxDataNasc = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxCep = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxEndereco = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxCpf = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxTelefone = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxNome
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(270, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBoxNome.Location = new System.Drawing.Point(110, 81);
+            this.textBoxNome.Name = "textBoxNome";
+            this.textBoxNome.Size = new System.Drawing.Size(270, 20);
+            this.textBoxNome.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
@@ -116,49 +114,86 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.textBox12);
+            this.panel1.Controls.Add(this.textBoxSenha);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textBox10);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.textBox8);
+            this.panel1.Controls.Add(this.textBoxConfirmeSenha);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.textBox7);
+            this.panel1.Controls.Add(this.textBoxDataNasc);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.textBoxCep);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox5);
+            this.panel1.Controls.Add(this.textBoxEndereco);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.textBoxCpf);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.textBoxTelefone);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.textBoxEmail);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.textBoxNome);
             this.panel1.Location = new System.Drawing.Point(104, 78);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(418, 400);
             this.panel1.TabIndex = 3;
             // 
-            // label8
+            // textBoxSenha
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(51, 240);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Endereço";
+            this.textBoxSenha.Location = new System.Drawing.Point(110, 261);
+            this.textBoxSenha.Name = "textBoxSenha";
+            this.textBoxSenha.Size = new System.Drawing.Size(270, 20);
+            this.textBoxSenha.TabIndex = 7;
             // 
-            // textBox8
+            // label15
             // 
-            this.textBox8.Location = new System.Drawing.Point(110, 237);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(270, 20);
-            this.textBox8.TabIndex = 15;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(66, 264);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(38, 13);
+            this.label15.TabIndex = 25;
+            this.label15.Text = "Senha";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(147, 355);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(10);
+            this.button1.Size = new System.Drawing.Size(128, 40);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Cadastre-se";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label11.Location = new System.Drawing.Point(85, 27);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(235, 26);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Formulario de cadastro";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(22, 290);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(83, 13);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Confirmar senha";
+            // 
+            // textBoxConfirmeSenha
+            // 
+            this.textBoxConfirmeSenha.Location = new System.Drawing.Point(110, 287);
+            this.textBoxConfirmeSenha.Name = "textBoxConfirmeSenha";
+            this.textBoxConfirmeSenha.Size = new System.Drawing.Size(270, 20);
+            this.textBoxConfirmeSenha.TabIndex = 7;
             // 
             // label7
             // 
@@ -169,28 +204,28 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Data de nascimento";
             // 
-            // textBox7
+            // textBoxDataNasc
             // 
-            this.textBox7.Location = new System.Drawing.Point(157, 211);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(223, 20);
-            this.textBox7.TabIndex = 13;
+            this.textBoxDataNasc.Location = new System.Drawing.Point(157, 211);
+            this.textBoxDataNasc.Name = "textBoxDataNasc";
+            this.textBoxDataNasc.Size = new System.Drawing.Size(223, 20);
+            this.textBoxDataNasc.TabIndex = 5;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(77, 266);
+            this.label6.Location = new System.Drawing.Point(77, 238);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "CEP";
             // 
-            // textBox6
+            // textBoxCep
             // 
-            this.textBox6.Location = new System.Drawing.Point(110, 263);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(270, 20);
-            this.textBox6.TabIndex = 11;
+            this.textBoxCep.Location = new System.Drawing.Point(110, 235);
+            this.textBoxCep.Name = "textBoxCep";
+            this.textBoxCep.Size = new System.Drawing.Size(270, 20);
+            this.textBoxCep.TabIndex = 6;
             // 
             // label5
             // 
@@ -201,12 +236,12 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Endereço";
             // 
-            // textBox5
+            // textBoxEndereco
             // 
-            this.textBox5.Location = new System.Drawing.Point(110, 185);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(270, 20);
-            this.textBox5.TabIndex = 9;
+            this.textBoxEndereco.Location = new System.Drawing.Point(110, 185);
+            this.textBoxEndereco.Name = "textBoxEndereco";
+            this.textBoxEndereco.Size = new System.Drawing.Size(270, 20);
+            this.textBoxEndereco.TabIndex = 4;
             // 
             // label4
             // 
@@ -217,12 +252,12 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "CPF";
             // 
-            // textBox4
+            // textBoxCpf
             // 
-            this.textBox4.Location = new System.Drawing.Point(110, 159);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(270, 20);
-            this.textBox4.TabIndex = 7;
+            this.textBoxCpf.Location = new System.Drawing.Point(110, 159);
+            this.textBoxCpf.Name = "textBoxCpf";
+            this.textBoxCpf.Size = new System.Drawing.Size(270, 20);
+            this.textBoxCpf.TabIndex = 3;
             // 
             // label3
             // 
@@ -233,12 +268,12 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Telefone";
             // 
-            // textBox3
+            // textBoxTelefone
             // 
-            this.textBox3.Location = new System.Drawing.Point(110, 133);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(270, 20);
-            this.textBox3.TabIndex = 5;
+            this.textBoxTelefone.Location = new System.Drawing.Point(110, 133);
+            this.textBoxTelefone.Name = "textBoxTelefone";
+            this.textBoxTelefone.Size = new System.Drawing.Size(270, 20);
+            this.textBoxTelefone.TabIndex = 2;
             // 
             // label2
             // 
@@ -249,12 +284,12 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "E-mail";
             // 
-            // textBox2
+            // textBoxEmail
             // 
-            this.textBox2.Location = new System.Drawing.Point(110, 107);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(270, 20);
-            this.textBox2.TabIndex = 3;
+            this.textBoxEmail.Location = new System.Drawing.Point(110, 107);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(270, 20);
+            this.textBoxEmail.TabIndex = 1;
             // 
             // label9
             // 
@@ -272,44 +307,6 @@
             this.textBox9.Size = new System.Drawing.Size(270, 20);
             this.textBox9.TabIndex = 17;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(22, 318);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(83, 13);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "Confirmar senha";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(110, 315);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(270, 20);
-            this.textBox10.TabIndex = 19;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label11.Location = new System.Drawing.Point(85, 27);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(235, 26);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "Formulario de cadastro";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(147, 355);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10);
-            this.button1.Size = new System.Drawing.Size(128, 40);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Cadastre-se";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -325,6 +322,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(361, 400);
             this.panel2.TabIndex = 4;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Green;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(118, 235);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(10);
+            this.button2.Size = new System.Drawing.Size(128, 40);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Entrar";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label14.Location = new System.Drawing.Point(51, 84);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(112, 26);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Faça login";
             // 
             // label13
             // 
@@ -342,45 +361,7 @@
             this.textBox11.Size = new System.Drawing.Size(270, 20);
             this.textBox11.TabIndex = 5;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label14.Location = new System.Drawing.Point(51, 84);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(112, 26);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "Faça login";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Green;
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(118, 235);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(10);
-            this.button2.Size = new System.Drawing.Size(128, 40);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Entrar";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(110, 289);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(270, 20);
-            this.textBox12.TabIndex = 24;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(66, 292);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(38, 13);
-            this.label15.TabIndex = 25;
-            this.label15.Text = "Senha";
-            // 
-            // Form1
+            // formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -388,7 +369,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "formulario";
             this.Text = "QuaseLar";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -403,7 +384,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
@@ -411,22 +392,20 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxEndereco;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxCpf;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxTelefone;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBoxDataNasc;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBoxCep;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBoxConfirmeSenha;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Button button1;
@@ -435,7 +414,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBoxSenha;
         private System.Windows.Forms.Label label15;
     }
 }

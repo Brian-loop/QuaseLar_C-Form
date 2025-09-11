@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace QuaseLar_C_Form
 {
-    public partial class tela_ao_clicar_no_card : Form
+    public partial class pagina_inicial : Form
     {
-        public tela_ao_clicar_no_card()
+        public pagina_inicial()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
