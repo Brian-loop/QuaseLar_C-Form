@@ -21,5 +21,10 @@ namespace QuaseLar_C_Form
         {
 
         }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -76,15 +76,20 @@ namespace QuaseLar_C_Form
                     cmd.Parameters.AddWithValue("@cpf", cpf);
                     cmd.Parameters.AddWithValue("@endereco", endereco);
                     cmd.Parameters.AddWithValue("@senha", senha);
-                    cmd.Parameters.AddWithValue("@confrimar_senha", confrimarSenha);
+                    cmd.Parameters.AddWithValue("@confirmar_senha", confrimarSenha);
 
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Cliente cadastrado com sucesso");      //mensagem de sucesso
                     textBoxNome.Clear();    //limpa os 'textBox' preenchidos
-                    textBoxTelefone.Clear();
                     textBoxEmail.Clear();
+                    textBoxTelefone.Clear();
                     textBoxDataNasc.Clear();
+                    textBoxCep.Clear();
+                    textBoxCpf.Clear();
+                    textBoxEndereco.Clear();
+                    textBoxConfirmeSenha.Clear();
+                    textBoxSenha.Clear();
 
                     textBoxNome.Focus();    //Aponta o cursor para ele depois de limpar tudo
 
@@ -99,8 +104,11 @@ namespace QuaseLar_C_Form
 
             }
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string conexaoBanco = "server=localhost;user id=root;passaword=;database=db_quaselar_oficial";      //conexxao local
 
-
+        }
     }
 }
 
