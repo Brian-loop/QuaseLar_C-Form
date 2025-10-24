@@ -63,6 +63,16 @@ namespace QuaseLar_C_Form.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cat_logo {
+            get {
+                object obj = ResourceManager.GetObject("cat_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sem_foto {
             get {
                 object obj = ResourceManager.GetObject("sem_foto", resourceCulture);

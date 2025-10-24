@@ -16,7 +16,13 @@ namespace QuaseLar_C_Form
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formulario());
+            Application.Run(new index());
         }
     }
+
+
+
+
+
+
 }

@@ -98,11 +98,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cadastro_de_doacao.cs">
+    <Compile Include="cadastro_de_animais.cs" />
+    <Compile Include="cad_adocao_de_animais.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="cadastro_de_doacao.Designer.cs">
-      <DependentUpon>cadastro_de_doacao.cs</DependentUpon>
+    <Compile Include="cad_adocao_de_animais.Designer.cs">
+      <DependentUpon>cad_adocao_de_animais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cad_usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cad_usuarios.Designer.cs">
+      <DependentUpon>cad_usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="editar_perfil.cs">
       <SubType>Form</SubType>
@@ -110,11 +117,17 @@
     <Compile Include="editar_perfil.Designer.cs">
       <DependentUpon>editar_perfil.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="impressao_doacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="impressao_doacao.Designer.cs">
+      <DependentUpon>impressao_doacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="index.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="index.Designer.cs">
+      <DependentUpon>index.cs</DependentUpon>
     </Compile>
     <Compile Include="pagina_inicial.cs">
       <SubType>Form</SubType>
@@ -124,14 +137,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="cadastro_de_doacao.resx">
-      <DependentUpon>cadastro_de_doacao.cs</DependentUpon>
+    <EmbeddedResource Include="cad_usuarios.resx">
+      <DependentUpon>cad_usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="editar_perfil.resx">
       <DependentUpon>editar_perfil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="impressao_doacao.resx">
+      <DependentUpon>impressao_doacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="index.resx">
+      <DependentUpon>index.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pagina_inicial.resx">
       <DependentUpon>pagina_inicial.cs</DependentUpon>
@@ -162,6 +178,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sem_foto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cat_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
