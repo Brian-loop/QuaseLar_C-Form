@@ -36,9 +36,13 @@
             this.textBoxLoginSenha = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.msgDeErroConfirmarSenha = new System.Windows.Forms.Label();
+            this.msgDeErroSenha = new System.Windows.Forms.Label();
+            this.msgDeErroCep = new System.Windows.Forms.Label();
+            this.msgDeErroEndereco = new System.Windows.Forms.Label();
+            this.msgDeErroCpf = new System.Windows.Forms.Label();
+            this.msgDeErroTelefone = new System.Windows.Forms.Label();
+            this.msgDeErroEmail = new System.Windows.Forms.Label();
             this.msgDeErroNome = new System.Windows.Forms.Label();
             this.labelDeMensagemDeErro = new System.Windows.Forms.Label();
             this.textBoxSenha = new System.Windows.Forms.TextBox();
@@ -59,10 +63,6 @@
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNome = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -141,13 +141,15 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.msgDeErroConfirmarSenha);
+            this.panel1.Controls.Add(this.msgDeErroSenha);
+            this.panel1.Controls.Add(this.msgDeErroCep);
+            this.panel1.Controls.Add(this.msgDeErroEndereco);
+            this.panel1.Controls.Add(this.textBoxCep);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.msgDeErroCpf);
+            this.panel1.Controls.Add(this.msgDeErroTelefone);
+            this.panel1.Controls.Add(this.msgDeErroEmail);
             this.panel1.Controls.Add(this.msgDeErroNome);
             this.panel1.Controls.Add(this.labelDeMensagemDeErro);
             this.panel1.Controls.Add(this.textBoxSenha);
@@ -156,8 +158,6 @@
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.textBoxConfirmeSenha);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBoxCep);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.textBoxEndereco);
             this.panel1.Controls.Add(this.label4);
@@ -174,38 +174,82 @@
             this.panel1.Size = new System.Drawing.Size(418, 476);
             this.panel1.TabIndex = 5;
             // 
-            // label12
+            // msgDeErroConfirmarSenha
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
-            this.label12.Location = new System.Drawing.Point(103, 197);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(82, 12);
-            this.label12.TabIndex = 29;
-            this.label12.Text = "Campo Obrigatorio";
+            this.msgDeErroConfirmarSenha.AutoSize = true;
+            this.msgDeErroConfirmarSenha.BackColor = System.Drawing.Color.Transparent;
+            this.msgDeErroConfirmarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.msgDeErroConfirmarSenha.Location = new System.Drawing.Point(103, 346);
+            this.msgDeErroConfirmarSenha.Name = "msgDeErroConfirmarSenha";
+            this.msgDeErroConfirmarSenha.Size = new System.Drawing.Size(82, 12);
+            this.msgDeErroConfirmarSenha.TabIndex = 32;
+            this.msgDeErroConfirmarSenha.Text = "Campo Obrigatorio";
             // 
-            // label8
+            // msgDeErroSenha
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
-            this.label8.Location = new System.Drawing.Point(103, 156);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 12);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "Campo Obrigatorio";
+            this.msgDeErroSenha.AutoSize = true;
+            this.msgDeErroSenha.BackColor = System.Drawing.Color.Transparent;
+            this.msgDeErroSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.msgDeErroSenha.Location = new System.Drawing.Point(103, 308);
+            this.msgDeErroSenha.Name = "msgDeErroSenha";
+            this.msgDeErroSenha.Size = new System.Drawing.Size(82, 12);
+            this.msgDeErroSenha.TabIndex = 31;
+            this.msgDeErroSenha.Text = "Campo Obrigatorio";
             // 
-            // label7
+            // msgDeErroCep
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
-            this.label7.Location = new System.Drawing.Point(103, 117);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 12);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "Campo Obrigatorio";
+            this.msgDeErroCep.AutoSize = true;
+            this.msgDeErroCep.BackColor = System.Drawing.Color.Transparent;
+            this.msgDeErroCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.msgDeErroCep.Location = new System.Drawing.Point(103, 235);
+            this.msgDeErroCep.Name = "msgDeErroCep";
+            this.msgDeErroCep.Size = new System.Drawing.Size(82, 12);
+            this.msgDeErroCep.TabIndex = 30;
+            this.msgDeErroCep.Text = "Campo Obrigatorio";
+            // 
+            // msgDeErroEndereco
+            // 
+            this.msgDeErroEndereco.AutoSize = true;
+            this.msgDeErroEndereco.BackColor = System.Drawing.Color.Transparent;
+            this.msgDeErroEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.msgDeErroEndereco.Location = new System.Drawing.Point(103, 268);
+            this.msgDeErroEndereco.Name = "msgDeErroEndereco";
+            this.msgDeErroEndereco.Size = new System.Drawing.Size(82, 12);
+            this.msgDeErroEndereco.TabIndex = 8;
+            this.msgDeErroEndereco.Text = "Campo Obrigatorio";
+            // 
+            // msgDeErroCpf
+            // 
+            this.msgDeErroCpf.AutoSize = true;
+            this.msgDeErroCpf.BackColor = System.Drawing.Color.Transparent;
+            this.msgDeErroCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.msgDeErroCpf.Location = new System.Drawing.Point(103, 197);
+            this.msgDeErroCpf.Name = "msgDeErroCpf";
+            this.msgDeErroCpf.Size = new System.Drawing.Size(82, 12);
+            this.msgDeErroCpf.TabIndex = 29;
+            this.msgDeErroCpf.Text = "Campo Obrigatorio";
+            // 
+            // msgDeErroTelefone
+            // 
+            this.msgDeErroTelefone.AutoSize = true;
+            this.msgDeErroTelefone.BackColor = System.Drawing.Color.Transparent;
+            this.msgDeErroTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.msgDeErroTelefone.Location = new System.Drawing.Point(103, 156);
+            this.msgDeErroTelefone.Name = "msgDeErroTelefone";
+            this.msgDeErroTelefone.Size = new System.Drawing.Size(82, 12);
+            this.msgDeErroTelefone.TabIndex = 28;
+            this.msgDeErroTelefone.Text = "Campo Obrigatorio";
+            // 
+            // msgDeErroEmail
+            // 
+            this.msgDeErroEmail.AutoSize = true;
+            this.msgDeErroEmail.BackColor = System.Drawing.Color.Transparent;
+            this.msgDeErroEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.msgDeErroEmail.Location = new System.Drawing.Point(103, 117);
+            this.msgDeErroEmail.Name = "msgDeErroEmail";
+            this.msgDeErroEmail.Size = new System.Drawing.Size(82, 12);
+            this.msgDeErroEmail.TabIndex = 27;
+            this.msgDeErroEmail.Text = "Campo Obrigatorio";
             // 
             // msgDeErroNome
             // 
@@ -214,9 +258,8 @@
             this.msgDeErroNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
             this.msgDeErroNome.Location = new System.Drawing.Point(103, 79);
             this.msgDeErroNome.Name = "msgDeErroNome";
-            this.msgDeErroNome.Size = new System.Drawing.Size(82, 12);
+            this.msgDeErroNome.Size = new System.Drawing.Size(0, 12);
             this.msgDeErroNome.TabIndex = 7;
-            this.msgDeErroNome.Text = "Campo Obrigatorio";
             // 
             // labelDeMensagemDeErro
             // 
@@ -285,7 +328,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(72, 252);
+            this.label6.Location = new System.Drawing.Point(72, 215);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 12;
@@ -293,7 +336,7 @@
             // 
             // textBoxCep
             // 
-            this.textBoxCep.Location = new System.Drawing.Point(105, 249);
+            this.textBoxCep.Location = new System.Drawing.Point(105, 212);
             this.textBoxCep.Name = "textBoxCep";
             this.textBoxCep.Size = new System.Drawing.Size(270, 20);
             this.textBoxCep.TabIndex = 6;
@@ -301,7 +344,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(46, 215);
+            this.label5.Location = new System.Drawing.Point(46, 249);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 10;
@@ -309,7 +352,7 @@
             // 
             // textBoxEndereco
             // 
-            this.textBoxEndereco.Location = new System.Drawing.Point(105, 212);
+            this.textBoxEndereco.Location = new System.Drawing.Point(105, 246);
             this.textBoxEndereco.Name = "textBoxEndereco";
             this.textBoxEndereco.Size = new System.Drawing.Size(270, 20);
             this.textBoxEndereco.TabIndex = 4;
@@ -379,50 +422,6 @@
             this.textBoxNome.TabIndex = 0;
             this.textBoxNome.TextChanged += new System.EventHandler(this.textBoxNome_TextChanged);
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
-            this.label16.Location = new System.Drawing.Point(103, 234);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(82, 12);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "Campo Obrigatorio";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
-            this.label17.Location = new System.Drawing.Point(103, 272);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(82, 12);
-            this.label17.TabIndex = 30;
-            this.label17.Text = "Campo Obrigatorio";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
-            this.label18.Location = new System.Drawing.Point(103, 308);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(82, 12);
-            this.label18.TabIndex = 31;
-            this.label18.Text = "Campo Obrigatorio";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
-            this.label19.Location = new System.Drawing.Point(103, 346);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(82, 12);
-            this.label19.TabIndex = 32;
-            this.label19.Text = "Campo Obrigatorio";
-            // 
             // cad_usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -471,12 +470,12 @@
         private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.Label labelDeMensagemDeErro;
         private System.Windows.Forms.Label msgDeErroNome;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label msgDeErroCpf;
+        private System.Windows.Forms.Label msgDeErroTelefone;
+        private System.Windows.Forms.Label msgDeErroEmail;
+        private System.Windows.Forms.Label msgDeErroSenha;
+        private System.Windows.Forms.Label msgDeErroCep;
+        private System.Windows.Forms.Label msgDeErroEndereco;
+        private System.Windows.Forms.Label msgDeErroConfirmarSenha;
     }
 }

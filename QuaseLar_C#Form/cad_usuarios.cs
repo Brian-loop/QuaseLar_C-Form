@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,55 +25,45 @@ namespace QuaseLar_C_Form
 
         }
 
+        private void textBoxNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void textBoxNome_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBoxNome.Text))
             {
-                labelDeMensagemDeErro.Text = "O campo Nome é obrigatório.";
+                msgDeErroNome.Text = "O campo Nome é obrigatório.";
+                return;
             }
-            else
+            if (!System.Text.RegularExpressions.Regex.IsMatch(textBoxNome.Text, @"^[A-Za-zÀ-ÿ\s]+$"))
             {
+                msgDeErroNome.Text = "O nome deve conter apenas letras e espaços";
+                return;
             }
+            if (textBoxNome.Text.Length < 3)
+            {
+                msgDeErroNome.Text = "O nome deve conter pelo menos 3 caracteres";
+                return;
+            }
+            if (textBoxNome.Text.Length > 100)
+            {
+                msgDeErroNome.Text = "O nome não pode ultrapassar dos 100 caracteres";
+                return;
+            }
+            else {
+                msgDeErroNome.Text = "OK";
+            }
+            
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
         private void buttonCadastrarSe_Click(object sender, EventArgs e)
         {
+
             string nome = textBoxNome.Text;
             string email = textBoxEmail.Text;
             string telefone = textBoxTelefone.Text;
