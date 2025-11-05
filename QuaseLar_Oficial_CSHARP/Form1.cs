@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuaseLar_C_Form
+namespace QuaseLar_Oficial_CSHARP
 {
-    public partial class impressao_doacao : Form
+    public partial class Form1 : Form
     {
-        public impressao_doacao()
+        public Form1()
         {
             InitializeComponent();
         }

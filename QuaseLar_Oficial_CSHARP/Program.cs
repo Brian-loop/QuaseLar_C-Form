@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuaseLar_C_Form
+namespace QuaseLar_Oficial_CSHARP
 {
     internal static class Program
     {
@@ -16,13 +16,7 @@ namespace QuaseLar_C_Form
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new index());
+            Application.Run(new Form1());
         }
     }
-
-
-
-
-
-
 }

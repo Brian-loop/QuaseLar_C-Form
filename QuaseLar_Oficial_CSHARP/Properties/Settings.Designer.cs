@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuaseLar_C_Form.Properties
+namespace QuaseLar_Oficial_CSHARP.Properties
 {
 
 

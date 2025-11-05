@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associadas a um assembly.
-[assembly: AssemblyTitle("QuaseLar_C#Form")]
+[assembly: AssemblyTitle("QuaseLar_Oficial_CSHARP")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("QuaseLar_C#Form")]
+[assembly: AssemblyProduct("QuaseLar_Oficial_CSHARP")]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("6235e1bc-cac3-4684-a6c9-6b447e1972db")]
+[assembly: Guid("8d757a6e-6663-405d-910d-4a8701bf5e71")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //
