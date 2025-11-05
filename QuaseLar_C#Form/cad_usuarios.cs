@@ -38,7 +38,6 @@ namespace QuaseLar_C_Form
             if (string.IsNullOrWhiteSpace(textBoxNome.Text))
             {
                 msgDeErroNome.Text = "O campo Nome é obrigatório.";
-                return;
             }
             if (!System.Text.RegularExpressions.Regex.IsMatch(textBoxNome.Text, @"^[A-Za-zÀ-ÿ\s]+$"))
             {
