@@ -16,5 +16,43 @@ namespace QuaseLar_Oficial_CSHARP
         {
             InitializeComponent();
         }
+
+        private void acessoFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void acessoEntrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtEmailAcesso.Text.Equals("a") && txtSenhaAcesso.Text.Equals("1"))
+                {
+                    var painelDeBotoes = new Painel_de_botoes();
+                    painelDeBotoes.Show();
+
+                    this.Visible = false;
+                    
+                }
+                else {
+                    msgErroAcesso.Text = "Email ou Senha incorretos!!";
+                    txtEmailAcesso.Focus();
+                    txtSenhaAcesso.Focus();
+                }
+
+            }
+            catch { 
+            }
+        }
+
+        private void txtEmailAcesso_TextChanged(object sender, EventArgs e)
+        {
+            msgErroAcesso.Text = "";
+        }
+
+        private void txtSenhaAcesso_TextChanged(object sender, EventArgs e)
+        {
+            msgErroAcesso.Text = "";
+        }
     }
 }
