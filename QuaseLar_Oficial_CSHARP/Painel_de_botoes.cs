@@ -39,6 +39,12 @@ namespace QuaseLar_Oficial_CSHARP
             Cadastro_de_Usuarios cadUsuario = new Cadastro_de_Usuarios();
             cadUsuario.Show();
         }
+
+        private void usuariosCadastradosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consulta_usuario consulUser = new Consulta_usuario();
+            consulUser.Show();
+        }
     }
 
     //=============================================================================================================================

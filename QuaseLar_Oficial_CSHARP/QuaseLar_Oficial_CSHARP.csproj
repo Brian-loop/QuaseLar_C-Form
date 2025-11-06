@@ -104,6 +104,12 @@
     <Compile Include="Cadastro_de_Usuarios.Designer.cs">
       <DependentUpon>Cadastro_de_Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consulta_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consulta_usuario.Designer.cs">
+      <DependentUpon>Consulta_usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Cadastro_de_Usuarios.resx">
       <DependentUpon>Cadastro_de_Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consulta_usuario.resx">
+      <DependentUpon>Consulta_usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
