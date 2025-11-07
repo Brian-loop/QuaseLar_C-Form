@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +14,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace QuaseLar_Oficial_CSHARP
 {
@@ -36,6 +39,18 @@ namespace QuaseLar_Oficial_CSHARP
         {
             txtNome.Clear();
             txtEmail.Clear();
+            txtTelefone.Clear();
+            txtCpf.Clear();
+            txtCep.Clear();
+            txtNumeroCasa.Clear();
+            txtEndereco.Clear();
+            txtSenha.Clear();
+            txtConfirmarSenha.Clear();
+        }
+        private void LimpaCampos()
+        {
+            txtNome.Clear();
+            txtEmail.Clear() ;
             txtTelefone.Clear();
             txtCpf.Clear();
             txtCep.Clear();
@@ -320,8 +335,6 @@ namespace QuaseLar_Oficial_CSHARP
                 msgErroConfirmarSenha.Text = "as senhas não coencidem";
                 msgErroConfirmarSenha.ForeColor = System.Drawing.Color.Red;
             }
-            
-
         }
 
         private string ValidarSenha()
@@ -390,6 +403,62 @@ namespace QuaseLar_Oficial_CSHARP
 
         }
 
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            string nome = txtNome.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string telefone = txtTelefone.Text.Trim();
+            string cpf = txtCpf.Text.Trim();
+            string cep = txtCep.Text.Trim();
+            string endereco = txtEndereco.Text.Trim();
+            string senha = txtSenha.Text.Trim();
+            string numeroDaCasa = txtNumeroCasa.Text.Trim();
+            // Validação simples
+            if (string.IsNullOrEmpty(nome) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha) || string.IsNullOrEmpty(telefone) || string.IsNullOrEmpty(cpf) || string.IsNullOrEmpty(cep) || string.IsNullOrEmpty(endereco) || string.IsNullOrEmpty(numeroDaCasa))
+            {
+                MessageBox.Show("Preencha todos os campos obrigatórios!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            BancoDeDados bd = new BancoDeDados();
+            MySqlConnection conexao = bd.AbrirConexao();
+
+            try
+            {
+                string query = @"INSERT INTO tb_usuario (nome, email, telefone, endereco, cep, cpf, senha)
+                         VALUES (@nome, @email, @telefone, @endereco, @cep, @cpf, @senha)";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conexao))
+                {
+                    cmd.Parameters.AddWithValue("@nome", nome);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@telefone", telefone);
+                    cmd.Parameters.AddWithValue("@cpf", cpf);
+                    cmd.Parameters.AddWithValue("@cep", cep);
+                    cmd.Parameters.AddWithValue("@endereco", endereco);
+                    cmd.Parameters.AddWithValue("@senha", senha);
+
+                    int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                    if (linhasAfetadas > 0)
+                    {
+                        MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpaCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nenhum registro foi inserido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao cadastrar: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                bd.FecharConexao(); 
+            }
+        }
     }
 }           

@@ -104,6 +104,12 @@
     <Compile Include="Cadastro_de_Animais.Designer.cs">
       <DependentUpon>Cadastro_de_Animais.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cadastro_de_Procurados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastro_de_Procurados.Designer.cs">
+      <DependentUpon>Cadastro_de_Procurados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cadastro_de_Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,12 @@
     </Compile>
     <Compile Include="Consulta_de_Animais.Designer.cs">
       <DependentUpon>Consulta_de_Animais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consulta_de_Procurados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consulta_de_Procurados.Designer.cs">
+      <DependentUpon>Consulta_de_Procurados.cs</DependentUpon>
     </Compile>
     <Compile Include="Consulta_usuario.cs">
       <SubType>Form</SubType>
@@ -139,11 +151,17 @@
     <EmbeddedResource Include="Cadastro_de_Animais.resx">
       <DependentUpon>Cadastro_de_Animais.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cadastro_de_Procurados.resx">
+      <DependentUpon>Cadastro_de_Procurados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cadastro_de_Usuarios.resx">
       <DependentUpon>Cadastro_de_Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consulta_de_Animais.resx">
       <DependentUpon>Consulta_de_Animais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consulta_de_Procurados.resx">
+      <DependentUpon>Consulta_de_Procurados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consulta_usuario.resx">
       <DependentUpon>Consulta_usuario.cs</DependentUpon>

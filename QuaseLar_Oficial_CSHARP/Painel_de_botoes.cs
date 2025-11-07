@@ -57,6 +57,18 @@ namespace QuaseLar_Oficial_CSHARP
             Consulta_de_Animais consulPets = new Consulta_de_Animais();
             consulPets.Show();
         }
+
+        private void animaisPerdidosDesaparecidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cadastro_de_Procurados cadProcurados = new Cadastro_de_Procurados();
+            cadProcurados.Show();
+        }
+
+        private void animaisToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Consulta_de_Procurados consulProcurados = new Consulta_de_Procurados();
+            consulProcurados.Show();
+        }
     }
 
     //=============================================================================================================================
