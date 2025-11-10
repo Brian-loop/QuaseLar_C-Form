@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -29,9 +31,33 @@ namespace QuaseLar_Oficial_CSHARP
         }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+
+            ValidacaNome();
+            ValidaRaca();
+            ValidaCastrado();
+            ValidaEspecie();
+            ValidaSexo();
+            ValidaIdade();
+            ValidaMotivo();
+            ValidaTempo();
+            ValidaPorte();
+
+            if (string.IsNullOrWhiteSpace(txtNomeAnimal.Text) ||
+                cmbEspecie.SelectedItem == null ||
+                cmbSexo.SelectedItem == null ||
+                cmbCastrado.SelectedItem == null ||
+                cmbPorte.SelectedItem == null ||
+                cmbVacinado.SelectedItem == null ||
+                cmbEspecie.SelectedItem == null ||
+                cmbTempo.SelectedItem == null)
+            {
+                MessageBox.Show("Preencha todos os campos obrigatórios!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string nomePet = txtNomeAnimal.Text.Trim();
             string raca = txtRaca.Text.Trim();
-            int idade = int.Parse(txtIdade.Text.Trim());
+            string idade = txtIdade.Text.Trim();
             string semanasMesesAnos = cmbTempo.SelectedItem.ToString();
             string sexo = cmbSexo.SelectedItem.ToString();
             string castrado = cmbCastrado.SelectedItem.ToString();
@@ -41,69 +67,81 @@ namespace QuaseLar_Oficial_CSHARP
             string motivo = txtMotivo.Text.Trim();
 
             BancoDeDados bd = new BancoDeDados();
-            MySqlConnection conexao = bd.AbrirConexao();
-
-            try
+            using (MySqlConnection conexao = bd.AbrirConexao())
             {
-                string query = @"INSERT INTO tb_adocao 
-                         (id_usuario, nome_pet, raca, idade, semanas_meses_anos, 
-                          sexo, castrado, especie, porte, vacinado, motivo_da_doacao) 
-                         VALUES (1, @nome_pet, @raca, @idade, 
-                                 @semanas_meses_anos, @sexo, @castrado, 
-                                 @especie, @porte, @vacinado, @motivo);
-                         SELECT LAST_INSERT_ID();";
-
-                MySqlCommand cmd = new MySqlCommand(query, conexao);
-
-                cmd.Parameters.AddWithValue("@nome_pet", nomePet);
-                cmd.Parameters.AddWithValue("@raca", raca);
-                cmd.Parameters.AddWithValue("@idade", idade);
-                cmd.Parameters.AddWithValue("@semanas_meses_anos", semanasMesesAnos);
-                cmd.Parameters.AddWithValue("@sexo", sexo);
-                cmd.Parameters.AddWithValue("@castrado", castrado);
-                cmd.Parameters.AddWithValue("@especie", especie);
-                cmd.Parameters.AddWithValue("@porte", porte);
-                cmd.Parameters.AddWithValue("@vacinado", vacinado);
-                cmd.Parameters.AddWithValue("@motivo", motivo);
-
-                long idAdocao = Convert.ToInt64(cmd.ExecuteScalar());
-
-                string pastaDestino = Path.Combine(Application.StartupPath, "ImagensPets");
-
-                if (!Directory.Exists(pastaDestino))
-                    Directory.CreateDirectory(pastaDestino);
-
-                foreach (string caminho in caminhosImagens)
+                try
                 {
-                    string nomeArquivo = Path.GetFileName(caminho);
-                    string destino = Path.Combine(pastaDestino, nomeArquivo);
+                    string query = @"
+                INSERT INTO tb_adocao (
+                    id_usuario, nome_pet, raca, idade, semanas_meses_anos, 
+                    sexo, castrado, especie, porte, vacinado, motivo_da_doacao
+                ) 
+                VALUES (
+                    1, @nome_pet, @raca, @idade, @semanas_meses_anos, 
+                    @sexo, @castrado, @especie, @porte, @vacinado, @motivo
+                );
+                SELECT LAST_INSERT_ID();";
 
-                    File.Copy(caminho, destino, true);
+                    using (MySqlCommand cmd = new MySqlCommand(query, conexao))
+                    {
+                        cmd.Parameters.AddWithValue("@nome_pet", nomePet);
+                        cmd.Parameters.AddWithValue("@raca", raca);
+                        cmd.Parameters.AddWithValue("@idade", idade);
+                        cmd.Parameters.AddWithValue("@semanas_meses_anos", semanasMesesAnos);
+                        cmd.Parameters.AddWithValue("@sexo", sexo);
+                        cmd.Parameters.AddWithValue("@castrado", castrado);
+                        cmd.Parameters.AddWithValue("@especie", especie);
+                        cmd.Parameters.AddWithValue("@porte", porte);
+                        cmd.Parameters.AddWithValue("@vacinado", vacinado);
+                        cmd.Parameters.AddWithValue("@motivo", motivo);
 
-                    string sqlImg = @"INSERT INTO tb_img_animal 
-                              (id_adocao, nome_arquivo, localizacao, data_cadastro) 
-                              VALUES (@id, @nome, @local, NOW())";
+                        long idAdocao = Convert.ToInt64(cmd.ExecuteScalar());
 
-                    MySqlCommand cmdImg = new MySqlCommand(sqlImg, conexao);
-                    cmdImg.Parameters.AddWithValue("@id", idAdocao);
-                    cmdImg.Parameters.AddWithValue("@nome", nomeArquivo);
-                    cmdImg.Parameters.AddWithValue("@local", destino);
-                    cmdImg.ExecuteNonQuery();
+                        string pastaDestino = Path.Combine(Application.StartupPath, "ImagensPets");
+                        if (!Directory.Exists(pastaDestino))
+                            Directory.CreateDirectory(pastaDestino);
+
+                        foreach (string caminho in caminhosImagens)
+                        {
+                            if (!File.Exists(caminho))
+                                continue; 
+
+                            string nomeArquivo = Path.GetFileName(caminho);
+                            string destino = Path.Combine(pastaDestino, nomeArquivo);
+
+                            File.Copy(caminho, destino, true);
+
+                            string sqlImg = @"
+                        INSERT INTO tb_img_animal (
+                            id_adocao, nome_arquivo, localizacao, data_cadastro
+                        ) VALUES (
+                            @id, @nome, @local, NOW()
+                        )";
+
+                            using (MySqlCommand cmdImg = new MySqlCommand(sqlImg, conexao))
+                            {
+                                cmdImg.Parameters.AddWithValue("@id", idAdocao);
+                                cmdImg.Parameters.AddWithValue("@nome", nomeArquivo);
+                                cmdImg.Parameters.AddWithValue("@local", destino);
+                                cmdImg.ExecuteNonQuery();
+                            }
+                        }
+                    }
+
+                    caminhosImagens.Clear();
+                    ExibirImagens();
+                    limparCampos();
+
+                    MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                caminhosImagens.Clear();
-                ExibirImagens();
-
-                MessageBox.Show("Cadastro Realizado", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                limparCampos();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao cadastrar: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                bd.FecharConexao();
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao cadastrar: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    bd.FecharConexao();
+                }
             }
         }
 
@@ -164,6 +202,274 @@ namespace QuaseLar_Oficial_CSHARP
         private void cmbTempo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            ValidaTempo();
+        }
+        private void ValidacaNome()
+        {
+            string nome = txtNomeAnimal.Text.Trim();
+            msgErroNome.Text = "";
+            string padrao = @"^[a-zA-Zà-úÀ-Ú\s-]+$";
+
+            if(string.IsNullOrEmpty(nome))
+            {
+                msgErroNome.ForeColor = System.Drawing.Color.Red;
+                msgErroNome.Text = "O campo Nome do animal é obrigatório.";
+                return;
+            }
+            if (!Regex.IsMatch(nome, padrao))
+            {
+                msgErroNome.ForeColor = System.Drawing.Color.Red;
+                msgErroNome.Text = "So letra e espaços";
+                return;
+            }
+
+            if (nome.Length < 2)
+            {
+                msgErroNome.Text = "O Nome do animal deve ter pelo menos 2 caracteres.";
+                msgErroNome.ForeColor = System.Drawing.Color.Red;
+
+                return;
+            }
+            else
+            {
+                msgErroNome.ForeColor = System.Drawing.Color.Green;
+                msgErroNome.Text = "OK";
+            }
+        }
+        private void ValidaRaca()
+        {
+            string raca = txtRaca.Text.Trim();
+            msgErroRaca.Text = "";
+            string padrao = @"^[a-zA-Zà-úÀ-Ú\s-]+$";
+
+            if (!Regex.IsMatch(raca, padrao))
+            {
+                msgErroRaca.ForeColor = System.Drawing.Color.Red;
+                msgErroRaca.Text = "Só letras e espaços";
+            }
+                if (string.IsNullOrEmpty(raca))
+            {
+                msgErroRaca.ForeColor = System.Drawing.Color.Red;
+                msgErroRaca.Text = "O campo Raça é obrigatório.";
+                return;
+            }
+
+            if (raca.Length < 2)
+            {
+                msgErroRaca.ForeColor = System.Drawing.Color.Red;
+                msgErroRaca.Text = "O Nome do animal deve ter pelo menos 2 caracteres.";
+                return;
+            }
+            else
+            {
+                msgErroRaca.ForeColor = System.Drawing.Color.Green;
+                msgErroRaca.Text = "OK";
+            }
+        }
+        private void ValidaMotivo()
+        {
+            string motivo = txtMotivo.Text.Trim();
+            msgErroMotivo.Text = "";
+
+            if (string.IsNullOrEmpty(motivo))
+            {
+                msgErroMotivo.ForeColor = System.Drawing.Color.Red;
+                msgErroMotivo.Text = "O campo Motivo é obrigatório.";
+                return;
+            }
+            if (motivo.Length < 5)
+            {
+                msgErroMotivo.ForeColor = System.Drawing.Color.Red;
+                msgErroMotivo.Text = "O Motivo deve ter pelo menos 5 caracteres.";
+                return;
+            }
+            else
+            {
+                msgErroMotivo.ForeColor = System.Drawing.Color.Green;
+                msgErroMotivo.Text = "OK";
+            }
+        }
+        private void ValidaIdade()
+        {
+            string idade = txtIdade.Text.Trim();
+            msgErroIdade.Text = "";
+
+            if (string.IsNullOrEmpty(idade))
+            {
+                msgErroIdade.ForeColor = System.Drawing.Color.Red;
+                msgErroIdade.Text = "O campo Idade é obrigatório.";
+                return;
+            }
+            if (!int.TryParse(idade, out int idadeNum) || idadeNum <= 0)
+            {
+                msgErroIdade.ForeColor = System.Drawing.Color.Red;
+                msgErroIdade.Text = "A Idade deve ser um número maior que zero.";
+                return;
+            }
+            else
+            {
+                msgErroIdade.ForeColor = System.Drawing.Color.Green;
+                msgErroIdade.Text = "OK";
+            }
+        }
+        private void ValidaTempo()
+        {
+            string tempo = cmbTempo.SelectedIndex.ToString();
+            msgErroIdade2.Text = "";
+            if (cmbTempo.SelectedIndex == -1)
+            {
+                msgErroIdade2.ForeColor = System.Drawing.Color.Red;
+                msgErroIdade2.Text = "Selecione o tempo.";
+                return;
+            }
+            else
+            {
+                msgErroIdade2.ForeColor = System.Drawing.Color.Green;
+                msgErroIdade2.Text = "OK";
+            }
+        }
+        private void ValidaPorte()
+        {
+            string porte = cmbPorte.SelectedIndex.ToString();
+            msgErroPorte.Text = "";
+            if (cmbPorte.SelectedIndex == -1)
+            {
+                msgErroPorte.ForeColor = System.Drawing.Color.Red;
+                msgErroPorte.Text = "Selecione o porte do animal.";
+                return;
+            }
+            else
+            {
+                msgErroPorte.ForeColor = System.Drawing.Color.Green;
+                msgErroPorte.Text = "OK";
+            }
+        }
+        private void ValidaVacinado()
+        {
+            string vacinado = cmbVacinado.SelectedIndex.ToString();
+            msgErroVacinado.Text = "";
+            if (cmbVacinado.SelectedIndex == -1)
+            {
+                msgErroVacinado.ForeColor = System.Drawing.Color.Red;
+                msgErroVacinado.Text = "Selecione o sexo do animal.";
+                return;
+            }
+            else
+            {
+                msgErroVacinado.ForeColor = System.Drawing.Color.Green;
+                msgErroVacinado.Text = "OK";
+            }
+        }
+        private void ValidaCastrado()
+        {
+            string castrado = cmbCastrado.Text.Trim();
+            msgErroCastrado.Text = "";
+
+            if (string.IsNullOrEmpty(castrado))
+            {
+                msgErroCastrado.ForeColor = System.Drawing.Color.Red;
+                msgErroCastrado.Text = "Selecione se o animal é castrado.";
+                return;
+            }
+            else
+            {
+                msgErroCastrado.ForeColor = System.Drawing.Color.Green;
+                msgErroCastrado.Text = "OK";
+            }
+        }
+        private void ValidaSexo()
+        {
+            string sexo = cmbEspecie.SelectedIndex.ToString();
+            msgErroSexo.Text = "";
+            if (cmbSexo.SelectedIndex == -1)
+            {
+                msgErroSexo.ForeColor = System.Drawing.Color.Red;
+                msgErroSexo.Text = "Selecione uma opção";
+                return;
+            }
+            else
+            {
+                msgErroSexo.ForeColor = System.Drawing.Color.Green;
+                msgErroSexo.Text = "OK";
+            }
+        }
+        private void ValidaEspecie()
+        {
+            string especie = cmbEspecie.SelectedIndex.ToString();
+            msgErroEspecie.Text = "";
+
+            if (cmbEspecie.SelectedIndex == -1)
+            {
+                msgErroEspecie.ForeColor = System.Drawing.Color.Red;
+                msgErroEspecie.Text = "Selecione uma opção";
+                return;
+            }
+            else
+            {
+                msgErroEspecie.ForeColor = System.Drawing.Color.Green;
+                msgErroEspecie.Text = "OK";
+            }
+        }
+        private void txtNomeAnimal_TextChanged(object sender, EventArgs e)
+        {
+            ValidacaNome();
+        }
+
+        private void txtRaca_TextChanged(object sender, EventArgs e)
+        {
+            ValidaRaca();
+        }
+
+        private void txtIdade_TextChanged(object sender, EventArgs e)
+        {
+            ValidaIdade();
+        }
+
+        private void cmbSexo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidaSexo();
+        }
+
+        private void cmbCastrado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidaCastrado();
+        }
+
+        private void cmbEspecie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidaEspecie();
+        }
+
+        private void cmbPorte_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidaPorte();
+        }
+
+        private void cmbVacinado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidaVacinado();
+        }
+
+        private void txtMotivo_TextChanged(object sender, EventArgs e)
+        {
+            ValidaMotivo();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
+
 }

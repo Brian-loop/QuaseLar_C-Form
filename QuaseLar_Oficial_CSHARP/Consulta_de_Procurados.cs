@@ -187,7 +187,7 @@ namespace QuaseLar_Oficial_CSHARP
             {
                 int id = Convert.ToInt32(dgvPets.SelectedRows[0].Cells["id_procurados"].Value);
 
-                string sql = "UPDATE tb_procurados SET status_cad_pet='ATIVO' WHERE id_adocao=@id";
+                string sql = "UPDATE tb_procurados SET status_cad_pet='ATIVO' WHERE id_procurados=@id";
                 MySqlCommand cmd = new MySqlCommand(sql, bd.AbrirConexao());
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
@@ -242,7 +242,7 @@ namespace QuaseLar_Oficial_CSHARP
             {
                 int index = dgvPetsImg.SelectedRows[0].Index;
 
-                string sql = "SELECT * FROM tb_img_procurados WHERE id_adocao=@id";
+                string sql = "SELECT * FROM tb_img_procurados WHERE id_procurados=@id";
                 MySqlCommand cmd = new MySqlCommand(sql, bd.AbrirConexao());
                 cmd.Parameters.AddWithValue("@id", idProcuradoSelecionado);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -278,6 +278,11 @@ namespace QuaseLar_Oficial_CSHARP
                     MessageBox.Show("Imagem removida com sucesso!");
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

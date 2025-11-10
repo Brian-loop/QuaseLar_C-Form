@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.emaiAcesso = new System.Windows.Forms.Label();
-            this.senhaAcesso = new System.Windows.Forms.Label();
-            this.txtEmailAcesso = new System.Windows.Forms.TextBox();
-            this.txtSenhaAcesso = new System.Windows.Forms.TextBox();
-            this.acessoFechar = new System.Windows.Forms.Button();
-            this.acessoEntrar = new System.Windows.Forms.Button();
             this.msgErroAcesso = new System.Windows.Forms.Label();
+            this.acessoEntrar = new System.Windows.Forms.Button();
+            this.acessoFechar = new System.Windows.Forms.Button();
+            this.txtSenhaAcesso = new System.Windows.Forms.TextBox();
+            this.txtEmailAcesso = new System.Windows.Forms.TextBox();
+            this.senhaAcesso = new System.Windows.Forms.Label();
+            this.emaiAcesso = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -71,44 +71,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LOGIN DE ACESSO";
             // 
-            // emaiAcesso
+            // msgErroAcesso
             // 
-            this.emaiAcesso.AutoSize = true;
-            this.emaiAcesso.Location = new System.Drawing.Point(78, 60);
-            this.emaiAcesso.Name = "emaiAcesso";
-            this.emaiAcesso.Size = new System.Drawing.Size(80, 25);
-            this.emaiAcesso.TabIndex = 0;
-            this.emaiAcesso.Text = "E-mail:";
+            this.msgErroAcesso.AutoSize = true;
+            this.msgErroAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msgErroAcesso.ForeColor = System.Drawing.Color.Red;
+            this.msgErroAcesso.Location = new System.Drawing.Point(176, 137);
+            this.msgErroAcesso.Name = "msgErroAcesso";
+            this.msgErroAcesso.Size = new System.Drawing.Size(0, 16);
+            this.msgErroAcesso.TabIndex = 6;
             // 
-            // senhaAcesso
+            // acessoEntrar
             // 
-            this.senhaAcesso.AutoSize = true;
-            this.senhaAcesso.Location = new System.Drawing.Point(76, 106);
-            this.senhaAcesso.Name = "senhaAcesso";
-            this.senhaAcesso.Size = new System.Drawing.Size(82, 25);
-            this.senhaAcesso.TabIndex = 1;
-            this.senhaAcesso.Text = "Senha:";
-            // 
-            // txtEmailAcesso
-            // 
-            this.txtEmailAcesso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEmailAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailAcesso.Location = new System.Drawing.Point(164, 58);
-            this.txtEmailAcesso.Name = "txtEmailAcesso";
-            this.txtEmailAcesso.Size = new System.Drawing.Size(301, 30);
-            this.txtEmailAcesso.TabIndex = 2;
-            this.txtEmailAcesso.TextChanged += new System.EventHandler(this.txtEmailAcesso_TextChanged);
-            // 
-            // txtSenhaAcesso
-            // 
-            this.txtSenhaAcesso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSenhaAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenhaAcesso.Location = new System.Drawing.Point(164, 104);
-            this.txtSenhaAcesso.Name = "txtSenhaAcesso";
-            this.txtSenhaAcesso.Size = new System.Drawing.Size(301, 30);
-            this.txtSenhaAcesso.TabIndex = 3;
-            this.txtSenhaAcesso.UseSystemPasswordChar = true;
-            this.txtSenhaAcesso.TextChanged += new System.EventHandler(this.txtSenhaAcesso_TextChanged);
+            this.acessoEntrar.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.acessoEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acessoEntrar.Location = new System.Drawing.Point(289, 177);
+            this.acessoEntrar.Name = "acessoEntrar";
+            this.acessoEntrar.Size = new System.Drawing.Size(155, 50);
+            this.acessoEntrar.TabIndex = 3;
+            this.acessoEntrar.Text = "Entrar";
+            this.acessoEntrar.UseVisualStyleBackColor = false;
+            this.acessoEntrar.Click += new System.EventHandler(this.acessoEntrar_Click);
             // 
             // acessoFechar
             // 
@@ -122,38 +105,57 @@
             this.acessoFechar.UseVisualStyleBackColor = false;
             this.acessoFechar.Click += new System.EventHandler(this.acessoFechar_Click);
             // 
-            // acessoEntrar
+            // txtSenhaAcesso
             // 
-            this.acessoEntrar.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.acessoEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.acessoEntrar.Location = new System.Drawing.Point(289, 177);
-            this.acessoEntrar.Name = "acessoEntrar";
-            this.acessoEntrar.Size = new System.Drawing.Size(155, 50);
-            this.acessoEntrar.TabIndex = 5;
-            this.acessoEntrar.Text = "Entrar";
-            this.acessoEntrar.UseVisualStyleBackColor = false;
-            this.acessoEntrar.Click += new System.EventHandler(this.acessoEntrar_Click);
+            this.txtSenhaAcesso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSenhaAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenhaAcesso.Location = new System.Drawing.Point(164, 104);
+            this.txtSenhaAcesso.Name = "txtSenhaAcesso";
+            this.txtSenhaAcesso.Size = new System.Drawing.Size(301, 30);
+            this.txtSenhaAcesso.TabIndex = 2;
+            this.txtSenhaAcesso.UseSystemPasswordChar = true;
+            this.txtSenhaAcesso.TextChanged += new System.EventHandler(this.txtSenhaAcesso_TextChanged);
             // 
-            // msgErroAcesso
+            // txtEmailAcesso
             // 
-            this.msgErroAcesso.AutoSize = true;
-            this.msgErroAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.msgErroAcesso.ForeColor = System.Drawing.Color.Red;
-            this.msgErroAcesso.Location = new System.Drawing.Point(176, 137);
-            this.msgErroAcesso.Name = "msgErroAcesso";
-            this.msgErroAcesso.Size = new System.Drawing.Size(0, 16);
-            this.msgErroAcesso.TabIndex = 6;
+            this.txtEmailAcesso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmailAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailAcesso.Location = new System.Drawing.Point(164, 58);
+            this.txtEmailAcesso.Name = "txtEmailAcesso";
+            this.txtEmailAcesso.Size = new System.Drawing.Size(301, 30);
+            this.txtEmailAcesso.TabIndex = 1;
+            this.txtEmailAcesso.TextChanged += new System.EventHandler(this.txtEmailAcesso_TextChanged);
+            // 
+            // senhaAcesso
+            // 
+            this.senhaAcesso.AutoSize = true;
+            this.senhaAcesso.Location = new System.Drawing.Point(76, 106);
+            this.senhaAcesso.Name = "senhaAcesso";
+            this.senhaAcesso.Size = new System.Drawing.Size(82, 25);
+            this.senhaAcesso.TabIndex = 1;
+            this.senhaAcesso.Text = "Senha:";
+            // 
+            // emaiAcesso
+            // 
+            this.emaiAcesso.AutoSize = true;
+            this.emaiAcesso.Location = new System.Drawing.Point(78, 60);
+            this.emaiAcesso.Name = "emaiAcesso";
+            this.emaiAcesso.Size = new System.Drawing.Size(80, 25);
+            this.emaiAcesso.TabIndex = 0;
+            this.emaiAcesso.Text = "E-mail:";
             // 
             // Form1
             // 
+            this.AcceptButton = this.acessoEntrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.acessoFechar;
             this.ClientSize = new System.Drawing.Size(577, 376);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
