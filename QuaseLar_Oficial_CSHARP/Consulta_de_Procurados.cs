@@ -136,13 +136,13 @@ namespace QuaseLar_Oficial_CSHARP
                     if (row.RowState == DataRowState.Modified)
                     {
                         string sql = @"UPDATE tb_procurados SET 
-                                       nome_pet=@nome_pet, raca=@raca, idade=@idade, 
-                                       status_cad_pet=@status WHERE id_procurados=@id";
+                                       nome_p=@nome_p, raca_p=@raca, idade_p=@idade, 
+                                       status_p=@status WHERE id_procurados=@id";
                         MySqlCommand cmd = new MySqlCommand(sql, bd.AbrirConexao());
-                        cmd.Parameters.AddWithValue("@nome_pet", row["nome_pet"]);
-                        cmd.Parameters.AddWithValue("@raca", row["raca"]);
-                        cmd.Parameters.AddWithValue("@idade", row["idade"]);
-                        cmd.Parameters.AddWithValue("@status", row["status_cad_pet"]);
+                        cmd.Parameters.AddWithValue("@nome_pet", row["nome_p"]);
+                        cmd.Parameters.AddWithValue("@raca", row["raca_p"]);
+                        cmd.Parameters.AddWithValue("@idade", row["idade_P"]);
+                        cmd.Parameters.AddWithValue("@status", row["status_"]);
                         cmd.Parameters.AddWithValue("@id", row["id_procurados"]);
                         cmd.Parameters.AddWithValue("@id_usuario", row["id_usuario"]);
                         cmd.ExecuteNonQuery();
@@ -165,7 +165,7 @@ namespace QuaseLar_Oficial_CSHARP
             {
                 int id = Convert.ToInt32(dgvPets.SelectedRows[0].Cells["id_procurados"].Value);
 
-                string sql = "UPDATE tb_procurados SET status_cad_pet='DESATIVADO' WHERE id_procurados=@id";
+                string sql = "UPDATE tb_procurados SET status_cad_p='DESATIVADO' WHERE id_procurados=@id";
                 MySqlCommand cmd = new MySqlCommand(sql, bd.AbrirConexao());
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
@@ -187,7 +187,7 @@ namespace QuaseLar_Oficial_CSHARP
             {
                 int id = Convert.ToInt32(dgvPets.SelectedRows[0].Cells["id_procurados"].Value);
 
-                string sql = "UPDATE tb_procurados SET status_cad_pet='ATIVO' WHERE id_procurados=@id";
+                string sql = "UPDATE tb_procurados SET status_cad_p='ATIVO' WHERE id_procurados=@id";
                 MySqlCommand cmd = new MySqlCommand(sql, bd.AbrirConexao());
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();

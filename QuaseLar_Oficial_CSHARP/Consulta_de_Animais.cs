@@ -49,7 +49,6 @@ namespace QuaseLar_Oficial_CSHARP
                 dgvPets.Columns["status_cad_pet"].HeaderText = "Status";
 
                 dgvPets.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                // 🔹 AQUI ESTÁ O NOVO CÓDIGO:
                 foreach (DataGridViewRow linha in dgvPets.Rows)
                 {
                     if (linha.Cells["status_cad_pet"].Value != null)
@@ -71,18 +70,11 @@ namespace QuaseLar_Oficial_CSHARP
                     }
                 }
             }
-            
-
-       
             catch (Exception ex) 
             {
                 MessageBox.Show("Erro ao carregar pets: " + ex.Message);
             }
-
-
-
         }
-        
 
         private void dgvPets_CellClick(object sender, DataGridViewCellEventArgs e)
         {

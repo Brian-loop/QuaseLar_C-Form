@@ -24,7 +24,7 @@ namespace QuaseLar_Oficial_CSHARP
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
-        { 
+        {
 
             ValidacaNome();
             ValidaRaca();
@@ -39,7 +39,6 @@ namespace QuaseLar_Oficial_CSHARP
                 cmbEspecie.SelectedItem == null ||
                 cmbSexo.SelectedItem == null ||
                 cmbPorte.SelectedItem == null ||
-                cmbEspecie.SelectedItem == null ||
                 cmbTempo.SelectedItem == null)
             {
                 MessageBox.Show("Preencha todos os campos obrigatórios!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -51,9 +50,9 @@ namespace QuaseLar_Oficial_CSHARP
             string idade = txtIdade.Text.Trim();
             string semanasMesesAnos = cmbTempo.SelectedItem.ToString();
             string sexo = cmbSexo.SelectedItem.ToString();
-            string especie = cmbEspecie.SelectedItem.ToString();
+            string especie = cmbEspecie.SelectedItem.ToString(); 
             string porte = cmbPorte.SelectedItem.ToString();
-            string motivo = txtMotivo.Text.Trim();
+            string ultimaVezVisto = txtMotivo.Text.Trim();
 
             BancoDeDados bd = new BancoDeDados();
             using (MySqlConnection conexao = bd.AbrirConexao())
@@ -61,57 +60,58 @@ namespace QuaseLar_Oficial_CSHARP
                 try
                 {
                     string query = @"
-                INSERT INTO tb_adocao tb_procurados
+                INSERT INTO tb_procurados (
                     id_usuario, nome_p, raca_p, idade_p, semanas_meses_anos_p, 
-                    sexo_p, especie_p, porte_p, ultima_vez_visto
+                    sexo_p, porte_p, ultima_vez_visto, status_p
                 ) 
                 VALUES (
                     1, @nome_pet, @raca, @idade, @semanas_meses_anos, 
-                    @sexo, @especie, @porte, @ultima_vez_visto
+                    @sexo, @porte, @ultima_vez_visto, 'Procura-se'
                 );
                 SELECT LAST_INSERT_ID();";
+
+                    long idProcurado;
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conexao))
                     {
                         cmd.Parameters.AddWithValue("@nome_pet", nomePet);
-                        cmd.Parameters.AddWithValue("@raca_p", raca);
+                        cmd.Parameters.AddWithValue("@raca", raca);
                         cmd.Parameters.AddWithValue("@idade", idade);
                         cmd.Parameters.AddWithValue("@semanas_meses_anos", semanasMesesAnos);
                         cmd.Parameters.AddWithValue("@sexo", sexo);
-                        cmd.Parameters.AddWithValue("@especie", especie);
                         cmd.Parameters.AddWithValue("@porte", porte);
-                        cmd.Parameters.AddWithValue("@ultima_vez_visto", motivo);
+                        cmd.Parameters.AddWithValue("@ultima_vez_visto", ultimaVezVisto);
 
-                        long idAdocao = Convert.ToInt64(cmd.ExecuteScalar());
+                        idProcurado = Convert.ToInt64(cmd.ExecuteScalar());
+                    }
 
-                        string pastaDestino = Path.Combine(Application.StartupPath, "ImagensPets");
-                        if (!Directory.Exists(pastaDestino))
-                            Directory.CreateDirectory(pastaDestino);
+                    string pastaDestino = Path.Combine(Application.StartupPath, "ImagensPets");
+                    if (!Directory.Exists(pastaDestino))
+                        Directory.CreateDirectory(pastaDestino);
 
-                        foreach (string caminho in caminhosImagens)
+                    foreach (string caminho in caminhosImagens)
+                    {
+                        if (!File.Exists(caminho))
+                            continue;
+
+                        string nomeArquivo = Path.GetFileName(caminho);
+                        string destino = Path.Combine(pastaDestino, nomeArquivo);
+
+                        File.Copy(caminho, destino, true);
+
+                        string sqlImg = @"
+                    INSERT INTO tb_img_procurados (
+                        id_procurados, nome_arquivo, localizacao, data_cadastro
+                    ) VALUES (
+                        @id_procurados, @nome, @local, NOW()
+                    )";
+
+                        using (MySqlCommand cmdImg = new MySqlCommand(sqlImg, conexao))
                         {
-                            if (!File.Exists(caminho))
-                                continue;
-
-                            string nomeArquivo = Path.GetFileName(caminho);
-                            string destino = Path.Combine(pastaDestino, nomeArquivo);
-
-                            File.Copy(caminho, destino, true);
-
-                            string sqlImg = @"
-                        INSERT INTO id_img_procurados (
-                            id_procurados, nome_arquivo, localizacao, data_cadastro
-                        ) VALUES (
-                            @id, @nome, @local, NOW()
-                        )";
-
-                            using (MySqlCommand cmdImg = new MySqlCommand(sqlImg, conexao))
-                            {
-                                cmdImg.Parameters.AddWithValue("@id", idAdocao);
-                                cmdImg.Parameters.AddWithValue("@nome", nomeArquivo);
-                                cmdImg.Parameters.AddWithValue("@local", destino);
-                                cmdImg.ExecuteNonQuery();
-                            }
+                            cmdImg.Parameters.AddWithValue("@id_procurados", idProcurado);
+                            cmdImg.Parameters.AddWithValue("@nome", nomeArquivo);
+                            cmdImg.Parameters.AddWithValue("@local", destino);
+                            cmdImg.ExecuteNonQuery();
                         }
                     }
 
