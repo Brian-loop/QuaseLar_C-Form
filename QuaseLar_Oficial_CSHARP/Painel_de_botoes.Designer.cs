@@ -51,7 +51,7 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.toolStrip1.BackColor = System.Drawing.Color.Lavender;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
@@ -91,7 +91,7 @@
             this.animaisToolStripMenuItem.Name = "animaisToolStripMenuItem";
             this.animaisToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.A)));
-            this.animaisToolStripMenuItem.Size = new System.Drawing.Size(420, 46);
+            this.animaisToolStripMenuItem.Size = new System.Drawing.Size(400, 26);
             this.animaisToolStripMenuItem.Text = "Animais";
             this.animaisToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.animaisToolStripMenuItem.Click += new System.EventHandler(this.animaisToolStripMenuItem_Click);
@@ -102,7 +102,7 @@
             this.animaisPerdidosDesaparecidosToolStripMenuItem.Name = "animaisPerdidosDesaparecidosToolStripMenuItem";
             this.animaisPerdidosDesaparecidosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.P)));
-            this.animaisPerdidosDesaparecidosToolStripMenuItem.Size = new System.Drawing.Size(420, 46);
+            this.animaisPerdidosDesaparecidosToolStripMenuItem.Size = new System.Drawing.Size(400, 26);
             this.animaisPerdidosDesaparecidosToolStripMenuItem.Text = "Animais Perdidos/Desaparecidos";
             this.animaisPerdidosDesaparecidosToolStripMenuItem.Click += new System.EventHandler(this.animaisPerdidosDesaparecidosToolStripMenuItem_Click);
             // 
@@ -124,7 +124,7 @@
             this.usuariosCadastradosToolStripMenuItem.Name = "usuariosCadastradosToolStripMenuItem";
             this.usuariosCadastradosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.U)));
-            this.usuariosCadastradosToolStripMenuItem.Size = new System.Drawing.Size(559, 46);
+            this.usuariosCadastradosToolStripMenuItem.Size = new System.Drawing.Size(539, 26);
             this.usuariosCadastradosToolStripMenuItem.Text = "Usúarios Cadastrados";
             this.usuariosCadastradosToolStripMenuItem.Click += new System.EventHandler(this.usuariosCadastradosToolStripMenuItem_Click);
             // 
@@ -134,7 +134,7 @@
             this.animaisCadastradosToolStripMenuItem.Name = "animaisCadastradosToolStripMenuItem";
             this.animaisCadastradosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.A)));
-            this.animaisCadastradosToolStripMenuItem.Size = new System.Drawing.Size(559, 46);
+            this.animaisCadastradosToolStripMenuItem.Size = new System.Drawing.Size(539, 26);
             this.animaisCadastradosToolStripMenuItem.Text = "Animais Cadastrados";
             this.animaisCadastradosToolStripMenuItem.Click += new System.EventHandler(this.animaisCadastradosToolStripMenuItem_Click);
             // 
@@ -144,7 +144,7 @@
             this.animaisToolStripMenuItem1.Name = "animaisToolStripMenuItem1";
             this.animaisToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.P)));
-            this.animaisToolStripMenuItem1.Size = new System.Drawing.Size(559, 46);
+            this.animaisToolStripMenuItem1.Size = new System.Drawing.Size(539, 26);
             this.animaisToolStripMenuItem1.Text = "Animais Animais Perdidos/Desaparecidos Cadastrados";
             this.animaisToolStripMenuItem1.Click += new System.EventHandler(this.animaisToolStripMenuItem1_Click);
             // 

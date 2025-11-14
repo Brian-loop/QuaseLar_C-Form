@@ -261,8 +261,9 @@
             this.cmbPorte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPorte.FormattingEnabled = true;
             this.cmbPorte.Items.AddRange(new object[] {
-            "Sim",
-            "Nao"});
+            "Pequeno",
+            "Medio",
+            "Grande"});
             this.cmbPorte.Location = new System.Drawing.Point(109, 290);
             this.cmbPorte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbPorte.Name = "cmbPorte";

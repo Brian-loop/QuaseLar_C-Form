@@ -26,7 +26,7 @@ namespace QuaseLar_Oficial_CSHARP
         {
             try
             {
-                if (txtEmailAcesso.Text.Equals("a") && txtSenhaAcesso.Text.Equals("1"))
+                if (txtEmailAcesso.Text.Equals("admin") && txtSenhaAcesso.Text.Equals("admin"))
                 {
                     var painelDeBotoes = new Painel_de_botoes();
                     painelDeBotoes.Show();

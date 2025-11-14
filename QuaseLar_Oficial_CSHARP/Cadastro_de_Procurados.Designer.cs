@@ -385,8 +385,9 @@
             this.cmbPorte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPorte.FormattingEnabled = true;
             this.cmbPorte.Items.AddRange(new object[] {
-            "Sim",
-            "Nao"});
+            "Pequeno",
+            "Medio",
+            "Grande"});
             this.cmbPorte.Location = new System.Drawing.Point(115, 250);
             this.cmbPorte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbPorte.Name = "cmbPorte";
@@ -559,7 +560,7 @@
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Cadastro_de_Procurados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro_de_Procurados";
